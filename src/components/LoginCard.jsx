@@ -57,12 +57,12 @@ export default function LoginCard() {
             });
 
             // Check if the response status is not OK
-            if (!res.ok) {
-                const errorData = await res.json();
-                console.error("Error response data:", errorData);
-                showToast("adnan Error", errorData.error || "Login failed", "error");
-                return;
-            }
+            // if (!res.ok) {
+            //     const errorData = await res.json();
+            //     console.error("Error response data:", errorData);
+            //     showToast("adnan Error", errorData.error || "Login failed", "error");
+            //     return;
+            // }
 
             const data = await res.json();
 
