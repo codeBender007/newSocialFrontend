@@ -42,7 +42,7 @@ export default function LoginCard() {
     const handleLogin = async () => {
         setLoading(true)
         try {
-            const res = await axios.post(`https://mohdadnan.onrender.com/api/users/login`, {inputs});
+            const res = await axios.post(`https://mohdadnan.onrender.com/api/users/login`, inputs , { withCredentials: true });
             // console.log(inputs)
 
             // const res = await fetch(`https://mohdadnan.onrender.com/api/users/login`, {
