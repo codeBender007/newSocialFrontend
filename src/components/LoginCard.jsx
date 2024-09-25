@@ -80,7 +80,7 @@ export default function LoginCard() {
         //     console.error("Login error:", err);
         //     showToast(" ameen Error", err.message || "Login failed", "error");
         // }
-    const handleLogin = async (inputs) => {
+    // const handleLogin = async (inputs) => {
 
     const res = await fetch(`${API_BASE_URL}/api/users/login`, {
       method: 'POST',
