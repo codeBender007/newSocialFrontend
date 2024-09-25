@@ -105,14 +105,13 @@ export default function LoginCard() {
             }
 	
   } catch (error) {
-    console.error('Login error:', error);
+console.error('Login error:', error);
 showToast("adnan Error", data.error, "error");
 
   }
-}
-        finally{
+} finally{
             setLoading(false);
-        }
+        
     };
 
 
