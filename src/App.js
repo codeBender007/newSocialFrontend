@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 import logo from './logo.svg';
 import './App.css';
-=======
+
 import { Box, Container } from "@chakra-ui/react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import UserPage from "./pages/UserPage"
@@ -17,7 +17,7 @@ import CreatePost from "./components/CreatePost"
 import ChatPage from "./pages/ChatPage"
 
 const API_BASE_URL = 'https://social-backend-6n19.onrender.com'
->>>>>>> 45c2d93475e818fdb925297bdc528d5f0a109d42
+
 
 function App() {
 
