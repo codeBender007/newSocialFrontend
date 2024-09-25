@@ -45,7 +45,7 @@ export default function LoginCard() {
             // const res = await axios.post(`https://mohdadnan.onrender.com/api/users/login`, inputs , { withCredentials: true });
             // console.log(inputs)
 
-            const res = await fetch(`https://mohdadnan.onrender.com/api/users/login`, {
+            const res = await fetch(`${API_BASE_URL}/api/users/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
