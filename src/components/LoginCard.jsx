@@ -42,16 +42,19 @@ export default function LoginCard() {
     const handleLogin = async () => {
         setLoading(true)
         try {
-            const res = await axios.post(`https://mohdadnan.onrender.com/api/users/login`, inputs , { withCredentials: true });
+            // const res = await axios.post(`https://mohdadnan.onrender.com/api/users/login`, inputs , { withCredentials: true });
             // console.log(inputs)
 
-            // const res = await fetch(`https://mohdadnan.onrender.com/api/users/login`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify(inputs)
-            // });
+            const res = await fetch(`https://mohdadnan.onrender.com/api/users/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    // If you're using authentication tokens (JWT or similar), add them here
+                    // "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(inputs),
+                credentials: "include" // Add this if you are sending cookies or other credentials, can be "same-origin" or "include"
+            });
 
             // Check if the response status is not OK
             if (!res.ok) {
