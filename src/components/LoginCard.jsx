@@ -42,74 +42,43 @@ export default function LoginCard() {
     const handleLogin = async () => {
         setLoading(true)
         try {
-            // const res = await axios.post(`https://mohdadnan.onrender.com/api/users/login`, inputs , { withCredentials: true });
-            // console.log(inputs)
 
-        //     const res = await fetch(`${API_BASE_URL}/api/users/login`, {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //             // If you're using authentication tokens (JWT or similar), add them here
-        //             // "Authorization": `Bearer ${token}`
-        //         },
-        //         body: JSON.stringify(inputs),
-        //         credentials: "include" // Add this if you are sending cookies or other credentials, can be "same-origin" or "include"
-        //     });
 
-        //     // Check if the response status is not OK
-        //     // if (!res.ok) {
-        //     //     const errorData = await res.json();
-        //     //     console.error("Error response data:", errorData);
-        //     //     showToast("adnan Error", errorData.error || "Login failed", "error");
-        //     //     return;
-        //     // }
+            const res = await fetch(`${API_BASE_URL}/api/users/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
 
-        //     const data = await res.json();
+                },
+                body: JSON.stringify(inputs),
+                credentials: "include"
+            });
 
-        //     // Check if the data contains an error
-        //     if (data.error) {
-        //         console.log("error" , data.error)
-        //         showToast("pasha Error", data.error, "error");
-        //         return;
-        //     }
+            // Check if the response status is not OK
+            // if (!res.ok) {
+            //     const errorData = await res.json();
+            //     console.error("Error response data:", errorData);
+            //     showToast("adnan Error", errorData.error || "Login failed", "error");
+            //     return;
+            // }
 
-        //     // Store user data and update state
-        //     localStorage.setItem("user-threads", JSON.stringify(data));
-        //     setUser(data);
-        // } catch (err) {
-        //     console.error("Login error:", err);
-        //     showToast(" ameen Error", err.message || "Login failed", "error");
-        // }
-    // const handleLogin = async (inputs) => {
+            const data = await res.json();
 
-    const res = await fetch(`${API_BASE_URL}/api/users/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(inputs), // Send login credentials as JSON
-      credentials: 'include', // If you're using cookies
-    });
-
-    if (!res.ok) {
-      throw new Error('Login failed');
-	showToast("adnan Error", errorData.error || "Login failed", "error");
-    }
-
-    const data = await res.json();
-
+            // Check if the data contains an error
             if (data.error) {
                 console.log("error" , data.error)
                 showToast("pasha Error", data.error, "error");
                 return;
             }
-	
-  } catch (error) {
-console.error('Login error:', error);
-showToast("adnan Error", data.error, "error");
 
-  }
-} finally{
+            // Store user data and update state
+            localStorage.setItem("user-threads", JSON.stringify(data));
+            setUser(data);
+        } catch (err) {
+            console.error("Login error:", err);
+            showToast(" adnan Error", err.message || "Login failed", "error");
+        }
+ finally{
             setLoading(false);
         
     };
