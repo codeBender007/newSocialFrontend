@@ -23,6 +23,7 @@ import authScreenAtom from '../atoms/authAtom'
 import useShowToast from '../hooks/useShowToast'
 import userAtom from '../atoms/userAtom'
 import API_BASE_URL from "../App"
+import axios from 'axios'
 
 
 export default function LoginCard() {
@@ -41,13 +42,16 @@ export default function LoginCard() {
     const handleLogin = async () => {
         setLoading(true)
         try {
-            const res = await fetch(`https://mohdadnan.onrender.com/api/users/login`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(inputs)
-            });
+            const res = await axios.post(`https://mohdadnan.onrender.com/api/users/login`, inputs);
+            // console.log(inputs)
+
+            // const res = await fetch(`https://mohdadnan.onrender.com/api/users/login`, {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify(inputs)
+            // });
 
             // Check if the response status is not OK
             if (!res.ok) {
